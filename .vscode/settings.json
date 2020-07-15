@@ -1,0 +1,15 @@
+{
+    "editor.fontSize": 18,
+    "terminal.integrated.fontSize": 18,
+    "window.zoomLevel":0.5,
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.iconTheme": "vscode-icons",
+    "files.associations": {
+        "iostream": "cpp",
+        "string": "cpp",
+        "xiosbase": "cpp",
+        "functional": "cpp",
+        "algorithm": "cpp",
+        "array": "cpp"
+    },
+}
