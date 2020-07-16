@@ -162,6 +162,36 @@ void graph::uni(vertex *x,vertex *y){//menghubungkan kedua vertex yang memiliki 
     link(findset(x),findset(y));//memanggil method link
 }
 
+void graph::kruskal(){//method utama untuk menjalankan algoritma kruskal dan akan memeanggil method-method lain
+    //mengkondisikan semua vertex dalam keadaan netral(belum digunakan) dengan cara memanggil makeset(vertex*v)
+    for (int i = 0; i < nvert; i++)//semua vertex yang berada didalam graph dikondisikan dalam keadaan belum ditelusuri
+    {
+        makeset(addvertex[i]);
+    }
+
+    //mengambil edge(lintasan) dari kecil ke besar yang telah diurutkan kedalam antrean berprioritas
+    for (int i = 0; i < addjacent; i++)
+    {
+        //mengambil nilai dari vertex awal dan vertex tujuan
+        int start=x->add_edge[i]->start;//vertel awal
+        int end=x->add_edge[i]->end;//vertex tujuan
+        //mencari nilai root dari masing masing vertex,jika root kedua vertex sama lintasan tersebut diabaikan
+        vertex *a;
+        a=findset(addvertex[start]);//mencari nilai root
+        vertex *b;
+        b=findset(addvertex[end]);//mencari nilai root
+
+        //memasukkan nilai kedua vertex tersebut kedalam tree artinya lintasan tersebut dapat diambil sebagai bagian dari MST
+        if (a->lab != b->lab)//jika root berbeda,perintah if bernilai true
+        {
+            uni(addvertex[start],addvertex[end]);
+            displayvert(start);
+            displayvert(end);
+            cout<<" ";
+        }
+    }
+}
+
 int main(){
     
     return 0;
