@@ -144,6 +144,20 @@ vertex* graph::findset(vertex *v){//mengaplikasikan algoritma kruskal dan berfun
     return v->parent;
 }
 
+//menginputkan nilai vertex kedalam tree,dimana tiap node yang berada didalam tree akan merujuk ke root yang sama
+void graph::link(vertex *x,vertex *y){//akan menghubungkan kedua vertex pada parameter argument dan menginputkannya kedalam tree
+    if (x->rank > y->rank)//jika nilai rank vertex*x lebih besar
+    {
+        y->parent=x;//vertex x sebagai parent dari vertex *y
+    }else{//jika nilai rank vertex*x lebih kecil
+        x->parent=y;//vertex *y sebagai parent dari vertex *x
+        if (x->rank == y->rank)
+        {
+            y->rank=y->rank+1;//nilai rank dari vertex y akan ditambah1
+        }
+    }
+}
+
 
 int main(){
     
