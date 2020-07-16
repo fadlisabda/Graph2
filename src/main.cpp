@@ -12,7 +12,7 @@ using namespace std;
 class vertex{//akan digunakan sebagai representasi objek vertex atau node didalam sebuah graph.
 public:
     char lab;//karakter nama dari vertex yang bersangkutan.
-    string kota;
+    string kota;//karakter nama kota dari vertex yang bersangkutan.
     vertex *parent;//digunakan untuk menelusuri alamat vertex yang belum dilewati.
     int rank;//tiap vertex diambil sebagai sebuah lintasan(edge)yang berpasangan
     vertex(char l,string k){//nantinya akan digunakan ketika tiap vertex dibuat di dalam class graph.
@@ -130,10 +130,11 @@ x->insert(path);//nilai dari objek edge*path dimasukkan kedalam antrian berprior
 }
 
 //menampilkan nilai vertex dari hasil penelusuran pada algoritma kruskal
-void graph::displayvert(int v){//nilai integer dari argument inputan digunakan untuk menampilkan vertex
+void graph::displayvert(int v){//nilai integer dari argument inputan digunakan untuk menampilkan vertex kota
 cout<<addvertex[v]->kota;
 }
 
+//menampilkan nilai vertex dari hasil penelusuran pada algoritma kruskal
 void graph::displayvertex(int v){//nilai integer dari argument inputan digunakan untuk menampilkan vertex
 cout<<addvertex[v]->lab<<"";
 }
