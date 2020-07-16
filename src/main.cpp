@@ -192,7 +192,37 @@ void graph::kruskal(){//method utama untuk menjalankan algoritma kruskal dan aka
     }
 }
 
-int main(){
-    
+int main(){//memanggil method method yang telah kita bahas sebelumnya
+    cout<<"Implementation of graph using kruskal algorithm"<<endl;
+    graph *a=new graph();
+
+    //create vertex
+        a->Addvertex('A');//0
+        a->Addvertex('B');//1
+        a->Addvertex('C');//2
+        a->Addvertex('D');//3
+        a->Addvertex('E');//4
+        a->Addvertex('F');//5
+        a->Addvertex('G');//6
+        a->Addvertex('H');//7
+        a->Addvertex('I');//8
+
+    //create graph yang akan diimplementasikan dengan menggunakan algoritma kruskal
+        a->addedge(0,3,8);//AD //digunakan untuk menghubungkan antarvertex yang satu dengan vertex yang lain
+        a->addedge(0,1,6);//AB
+        a->addedge(1,2,1);//BC
+        a->addedge(1,3,10);//BD
+        a->addedge(2,6,20);//CG
+        a->addedge(2,5,15);//CF
+        a->addedge(2,3,21);//CD
+        a->addedge(3,4,14);//DE
+        a->addedge(4,5,3);//EF
+        a->addedge(4,7,5);//EH
+        a->addedge(5,7,11);//FH
+        a->addedge(6,7,13);//GH
+        a->addedge(6,8,18);//GI
+        a->addedge(7,8,17);//HI
+
+        a->kruskal();
     return 0;
 }
