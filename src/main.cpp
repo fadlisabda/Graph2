@@ -116,6 +116,18 @@ void graph::Addvertex(char lab){//menginputkan vertex yang dibuat dalam graph
     addvertex[nvert++]=new vertex(lab);//menginputkan vertex dengan nama karakter char lab kedalam array vertex **Addvertex,nvert++ akan menunjukkan indeks dari array tersebut
 }
 
+void graph::addedge(int st,int end,int w){//menghubungkan vertex-vertex yang ada didalam graph berdasarkan nilai indeksnya
+    //vertex asal maupun vertex tujuan dibuat sama karena graph yang dibuat graph yang tidak berarah dan tidak berbobot
+    this->add_adjacent[st][end]=w;
+    this->add_adjacent[end][st]=w;
+    addjacent++;
+
+    edge *path=new edge(st,end,w);//objek edge *path yang berisi nilai indeks vertex awal,vertex tujuan,serta nilai bobotnya
+    x->insert(path);//nilai dari objek edge*path dimasukkan kedalam antrian berprioritas digunakan untuk proses pengerjaan algoritma kruskal
+}
+
+
+
 int main(){
     
     return 0;
