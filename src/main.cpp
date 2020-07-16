@@ -126,6 +126,11 @@ void graph::addedge(int st,int end,int w){//menghubungkan vertex-vertex yang ada
     x->insert(path);//nilai dari objek edge*path dimasukkan kedalam antrian berprioritas digunakan untuk proses pengerjaan algoritma kruskal
 }
 
+//menampilkan nilai vertex dari hasil penelusuran pada algoritma kruskal
+void graph::displayvert(int v){//nilai integer dari argument inputan digunakan untuk menampilkan vertex
+    cout<<addvertex[v]->lab;
+}
+
 
 
 int main(){
