@@ -137,6 +137,13 @@ void graph::makeset(vertex *v){//nilai argument dari variabel vertex *v yang ber
     v->rank=0;
 }
 
+vertex* graph::findset(vertex *v){//mengaplikasikan algoritma kruskal dan berfungsi untuk mendeteksi apabila dua node yang akan dihubungkan membentuk sebuah looping tertutup
+    if(v != v->parent){//akan mengeksekusi perintah rekursif didalamnya sampai ditemukan nilai root dari node yang diinginkan(atau nilai v == v->parent)
+        v->parent=findset(v->parent);
+    }
+    return v->parent;
+}
+
 
 int main(){
     
