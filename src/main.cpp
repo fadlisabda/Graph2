@@ -74,6 +74,33 @@ class PQ{//mengurutkan lintasan(edge)yang masuk berdasarkan aturan antrean(queue
         }
 };
 
+class graph{//class utama yang memanggil class pendukung lainnya,mendefinisikan method-method utama dalam membuat algoritma kruskal
+    public:
+        //variabel array dua dimensi dan pointer
+        vertex **addvertex;//objek untuk tiap vertex yang dibuat didalam graph
+        int **add_adjacent;//menghubungkan dua vertex yang saling terhubung
+
+        //prototype fungsi untuk menjalankan algoritma kruskal
+        void Addvertex(char v);
+        void addedge(int s,int e,int w);
+        void kruskal();
+
+        graph(){//yang akan dipanggil lewat fungsi main()
+            addvertex=new vertex*[20];
+            add_adjacent=new int*[20];
+            for (int i = 0; i < 20; i++)
+            {
+                add_adjacent[i]=new int[20];
+                for (int j = 0; j < 20; j++)
+                {
+                    add_adjacent[i][j]=1000000;
+                }   
+            }
+        }
+};
+
+
+
 int main(){
     
     return 0;
