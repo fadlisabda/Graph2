@@ -1,4 +1,5 @@
 //Graph Tidak Berarah Dan Berbobot Dengan Algoritma Kruskal
+//proses pencarian nilai Minimum Spanning Tree(MST)
 #include <iostream>
 using namespace std;
 
@@ -31,6 +32,47 @@ class edge{//menetapkan jalur(path)
         }
 };
 
+class PQ{//mengurutkan lintasan(edge)yang masuk berdasarkan aturan antrean(queue) berprioritas
+    public:
+        int size;//menentukan ukuran dari antrean yang diinginkan
+        edge **add_edge;//variabel array bentukan untuk menyimpan nilai bobot,vertex awal dan vertex tujuan
+        int top;//mengetahui panjang dari antrean yang ada
+
+        PQ(int i,int x){ //constructor PQ ini akan aktif jika objek dari class PQ dibuat
+            size=i;
+            add_edge=new edge*[size];//menentukan batas jumlah array 
+            top=x;//menentukan kondisi awal dari antrean
+        }
+
+        int isempty(){//mengetahui apakah antrean berapa dalam keadaan kosong atau tidak
+            if(top<=0){
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }    
+
+        void insert(edge *item){//menginput dan mengurutkan seluruh lintasan(edge) yang ada di dalam graph,nantinya akan digunakan untuk menentukan nilai MST
+            if(isempty()==1){//ketika antrean berada dalam keadaan kosong 
+                add_edge[top++]=item;
+            }else{//jika antrian telah terisi sebelumnya
+                int i;
+                for (i = 0; i < top; i++)
+                {
+                    if(add_edge[i]->weight=item->weight){//pembandingan nilai
+                        break;
+                    }
+                }
+                for (int j = top; j > i; j--)//jika nilai yang dimasukkan lebih kecil
+                {
+                    add_edge[j]=add_edge[j-1];//pergeseran nilai
+                }
+                add_edge[i]=item;
+                top++;
+            }
+        }
+};
 
 int main(){
     
