@@ -158,6 +158,9 @@ void graph::link(vertex *x,vertex *y){//akan menghubungkan kedua vertex pada par
     }
 }
 
+void graph::uni(vertex *x,vertex *y){//menghubungkan kedua vertex yang memiliki root yang berbeda(tidak membentuk looping)
+    link(findset(x),findset(y));//memanggil method link
+}
 
 int main(){
     
