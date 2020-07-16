@@ -8,7 +8,7 @@ using namespace std;
 //cycle siklus atau sirkuit yaitu lintasan yang berawal dan berakhir pada simpul yang sama
 //weight bobot nilai yang dimiliki oleh sebuah lintasan(edge)antara dua buah vertex yang terhubung
 
-class vertex{
+class vertex{//akan digunakan sebagai representasi objek vertex atau node didalam sebuah graph.
     public:
         char lab;//karakter nama dari vertex yang bersangkutan.
         vertex *parent;//digunakan untuk menelusuri alamat vertex yang belum dilewati.
@@ -17,6 +17,8 @@ class vertex{
             lab=l;
         }
 };
+
+
 
 int main(){
     
