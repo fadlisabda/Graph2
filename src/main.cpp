@@ -13,7 +13,7 @@ class vertex{//akan digunakan sebagai representasi objek vertex atau node didala
     public:
         char lab;//karakter nama dari vertex yang bersangkutan.
         vertex *parent;//digunakan untuk menelusuri alamat vertex yang belum dilewati.
-        int rank;
+        int rank;//tiap vertex diambil sebagai sebuah lintasan(edge)yang berpasangan
         vertex(char l){//nantinya akan digunakan ketika tiap vertex dibuat di dalam class graph.
             lab=l;
         }
@@ -131,6 +131,11 @@ void graph::displayvert(int v){//nilai integer dari argument inputan digunakan u
     cout<<addvertex[v]->lab;
 }
 
+//mengondisikan seluruh vertex yang ada di dalam graph ke kondisi keadaan awal(belum di telusuri)
+void graph::makeset(vertex *v){//nilai argument dari variabel vertex *v yang berisi nilai int rank dan vertex *parent dikondisikan dalam keadaan normal
+    v->parent=v;
+    v->rank=0;
+}
 
 
 int main(){
