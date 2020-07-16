@@ -18,6 +18,18 @@ class vertex{//akan digunakan sebagai representasi objek vertex atau node didala
         }
 };
 
+class edge{//menetapkan jalur(path)
+    public:
+        int start;//nilai index vertex awal
+        int weight;//nilai bobot lintasan
+        int end;//index vertex tujuan
+        //objek dari class edge akan dibuat pada class priority_Q;
+        edge(int s,int e,int w){
+            start=s;
+            end=e;
+            weight=w;
+        }
+};
 
 
 int main(){
