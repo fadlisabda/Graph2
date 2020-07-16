@@ -79,8 +79,9 @@ class graph{//class utama yang memanggil class pendukung lainnya,mendefinisikan 
         //variabel array dua dimensi dan pointer
         vertex **addvertex;//objek untuk tiap vertex yang dibuat didalam graph
         int **add_adjacent;//menghubungkan dua vertex yang saling terhubung
+        int nvert,addjacent;
 
-        //prototype fungsi untuk menjalankan algoritma kruskal
+        //prototype fungsi public untuk menjalankan algoritma kruskal
         void Addvertex(char v);
         void addedge(int s,int e,int w);
         void kruskal();
@@ -96,10 +97,24 @@ class graph{//class utama yang memanggil class pendukung lainnya,mendefinisikan 
                     add_adjacent[i][j]=1000000;
                 }   
             }
+            x=new PQ(200,0);
+            nvert=0;
+            addjacent=0;
         }
+
+        //prototype fungsi private untuk menjalankan algoritma kruskal
+        private:
+            void makeset(vertex *v);
+            void displayvert(int v);
+            vertex *findset(vertex *v);
+            void uni(vertex *x,vertex *y);
+            void link(vertex *x,vertex *y);
+            PQ *x;
 };
 
-
+void graph::Addvertex(char lab){//menginputkan vertex yang dibuat dalam graph
+    addvertex[nvert++]=new vertex(lab);//menginputkan vertex dengan nama karakter char lab kedalam array vertex **Addvertex,nvert++ akan menunjukkan indeks dari array tersebut
+}
 
 int main(){
     
